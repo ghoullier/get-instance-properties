@@ -1,0 +1,47 @@
+{
+  "name": "get-instance-properties",
+  "version": "1.0.0",
+  "description": "Zeta Push Next",
+  "browser": "dist/index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "index.d.ts",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rimraf lib dist es .deploy .esdoc",
+    "build:commonjs": "tsc --outDir lib",
+    "build:es": "tsc --module ES2015 --moduleResolution Node --outDir es",
+    "build:umd": "cross-env NODE_ENV=development rollup -c -i src/index.ts -o dist/index.js",
+    "build:umd:min": "cross-env NODE_ENV=production rollup -c -i src/index.ts -o dist/index.min.js",
+    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
+    "prepare": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghoullier/get-instance-properties.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ghoullier/get-instance-properties/issues"
+  },
+  "homepage": "https://github.com/ghoullier/get-instance-properties#readme",
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "rimraf": "2.6.3",
+    "rollup": "1.15.6",
+    "rollup-plugin-commonjs": "10.0.0",
+    "rollup-plugin-node-resolve": "5.0.3",
+    "rollup-plugin-terser": "5.0.0",
+    "rollup-plugin-typescript": "1.0.1",
+    "tslib": "1.10.0",
+    "typescript": "3.5.2"
+  }
+}

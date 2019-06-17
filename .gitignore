@@ -1,0 +1,9 @@
+# Generated sources
+/dist/
+/es/
+/lib/
+# Third part dependencies
+/node_modules/
+# Log
+/npm-*.log
+/yarn-*.log
